@@ -1,21 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ThemeSelector from './components/ThemeSelector';
 import AnimationPlayer from './components/AnimationPlayer';
 import { themes } from './data/dialogues';
 import './App.css';
 
 function App() {
-  const [selectedTheme, setSelectedTheme] = useState(null);
-
-  // Read theme from URL on mount
-  useEffect(() => {
+  // Initialize theme from URL
+  const getInitialTheme = () => {
     const params = new URLSearchParams(window.location.search);
     const themeParam = params.get('theme');
+    return (themeParam && themes[themeParam]) ? themeParam : null;
+  };
 
-    if (themeParam && themes[themeParam]) {
-      setSelectedTheme(themeParam);
-    }
-  }, []);
+  const [selectedTheme, setSelectedTheme] = useState(getInitialTheme);
 
   // Update URL when theme changes
   const handleThemeSelect = (theme) => {

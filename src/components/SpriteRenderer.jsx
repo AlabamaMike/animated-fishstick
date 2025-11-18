@@ -1,11 +1,8 @@
-import { useState, useEffect } from 'react';
 import styles from './SpriteRenderer.module.css';
 
 export default function SpriteRenderer({ theme, activeSpeaker }) {
-  const [spritesLoaded, setSpritesLoaded] = useState(false);
-  const [error, setError] = useState(false);
-
   // For now, use placeholder colored boxes since we don't have sprites yet
+  // Sprites are loaded immediately in this placeholder implementation
   const bgColor = {
     classic: '#e2e8f0',
     pirates: '#1e40af',
@@ -26,19 +23,6 @@ export default function SpriteRenderer({ theme, activeSpeaker }) {
     space: '#ec4899',
     fantasy: '#f59e0b',
   }[theme] || '#3b82f6';
-
-  useEffect(() => {
-    // Simulate sprite loading
-    setSpritesLoaded(true);
-  }, [theme]);
-
-  if (!spritesLoaded) {
-    return <div className={styles.loading}>Loading sprites...</div>;
-  }
-
-  if (error) {
-    return <div className={styles.error}>Failed to load sprites</div>;
-  }
 
   return (
     <div className={styles.container} style={{ backgroundColor: bgColor }}>

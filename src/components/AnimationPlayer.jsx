@@ -8,16 +8,11 @@ import styles from './AnimationPlayer.module.css';
 
 export default function AnimationPlayer({ theme, onBack }) {
   const [currentFrame, setCurrentFrame] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [ttsEnabled, setTtsEnabled] = useState(isTTSSupported());
+  const [isPlaying, setIsPlaying] = useState(true); // Start playing immediately
+  const [ttsEnabled] = useState(isTTSSupported());
 
   const dialogue = dialogues[theme];
   const currentDialogue = dialogue[currentFrame];
-
-  useEffect(() => {
-    // Start animation on mount
-    setIsPlaying(true);
-  }, []);
 
   useEffect(() => {
     if (!isPlaying || currentFrame >= dialogue.length) {
