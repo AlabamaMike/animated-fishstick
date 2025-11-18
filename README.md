@@ -1,16 +1,94 @@
-# React + Vite
+# Fishsticks Joke Animation Webapp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive webapp that generates themed cartoon animations of the classic "Do you like fishsticks?" joke.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🎭 **4 Themed Versions**: Classic, Pirates, Space, and Fantasy
+- 🎬 **Auto-playing Animations**: Sprite-based animations with smooth transitions
+- 🔊 **Text-to-Speech**: Characters speak their dialogue using Web Speech API
+- 🔗 **Shareable Links**: Share your favorite theme via URL
+- 📱 **Responsive Design**: Works on desktop and mobile devices
 
-## React Compiler
+## Live Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Visit: [https://alabamamike.github.io/animated-fishstick/](https://alabamamike.github.io/animated-fishstick/)
 
-## Expanding the ESLint configuration
+## Development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+### Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── ThemeSelector.jsx
+│   ├── AnimationPlayer.jsx
+│   ├── SpriteRenderer.jsx
+│   ├── DialogueDisplay.jsx
+│   └── ShareButton.jsx
+├── data/               # Dialogue scripts and theme data
+│   └── dialogues.js
+├── utils/              # Utility functions
+│   └── tts.js
+└── App.jsx            # Main app component
+
+public/
+└── sprites/           # Character and background sprites (placeholders)
+```
+
+### Technologies
+
+- **React 18** - UI framework
+- **Vite** - Build tool and dev server
+- **CSS Modules** - Scoped component styling
+- **Web Speech API** - Text-to-speech functionality
+- **GitHub Pages** - Hosting
+
+## Deployment
+
+The app automatically deploys to GitHub Pages when changes are pushed to the `main` branch.
+
+Manual deployment:
+```bash
+npm run deploy
+```
+
+## Browser Compatibility
+
+- Chrome/Edge (latest 2 versions) ✅
+- Firefox (latest 2 versions) ✅
+- Safari (latest 2 versions) ✅
+- Text-to-speech requires browser support for Web Speech API
+
+## Future Enhancements
+
+- Additional themes (Western, Cyberpunk, Underwater)
+- Custom sprite artwork
+- User-customizable dialogue
+- GIF export functionality
+- Background music and sound effects
+
+## License
+
+MIT
